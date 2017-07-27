@@ -9,11 +9,11 @@
 		/>
 		<div class="pkpListPanelItem--submission__item">
 			<a :href="item.urlPublished" @focus="focusItem" @blur="blurItem">
-				<div class="pkpListPanelItem--submission__title">
-					{{ item.title }}
-				</div>
 				<div v-if="item.author" class="pkpListPanelItem--submission__author">
 					{{ item.author.authorString }}
+				</div>
+				<div class="pkpListPanelItem--submission__title">
+					{{ item.title }}
 				</div>
 			</a>
 			<div class="pkpListPanelItem__actions">
