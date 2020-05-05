@@ -12,11 +12,13 @@ import PkpLoad from '../lib/pkp/js/load.js';
 
 // Import controllers used by OMP
 import Container from '@/components/Container/Container.vue';
-import CatalogContainer from '@/components/Container/CatalogContainer.vue';
+import PageContainer from '@/components/Container/PageContainer.vue';
 import SettingsContainer from '@/components/Container/SettingsContainer.vue';
 import StatsEditorialContainer from '@/components/Container/StatsEditorialContainer.vue';
 import StatsPublicationsContainer from '@/components/Container/StatsPublicationsContainer.vue';
 import WorkflowContainer from '@/components/Container/WorkflowContainerOMP.vue';
+
+import CatalogListPanel from '@/components/ListPanel/submissions/CatalogListPanel.vue';
 
 // Required by the URN plugin
 import FieldText from '@/components/Form/fields/FieldText.vue';
@@ -25,7 +27,7 @@ import FieldText from '@/components/Form/fields/FieldText.vue';
 window.pkp = Object.assign(PkpLoad, {
 	controllers: {
 		Container,
-		CatalogContainer,
+		PageContainer,
 		SettingsContainer,
 		StatsEditorialContainer,
 		StatsPublicationsContainer,
@@ -35,3 +37,4 @@ window.pkp = Object.assign(PkpLoad, {
 
 // Required by the URN plugin
 window.pkp.Vue.component('field-text', FieldText);
+window.pkp.Vue.component('catalog-list-panel', CatalogListPanel);
