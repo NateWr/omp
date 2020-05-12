@@ -125,7 +125,7 @@ class WorkflowHandler extends PKPWorkflowHandler {
 		]);
 
 		$templateMgr->assign([
-			'pageComponent' => 'WorkflowContainer',
+			'pageComponent' => 'WorkflowPage',
 		]);
 	}
 
