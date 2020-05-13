@@ -12,14 +12,14 @@ import PkpLoad from '../lib/pkp/js/load.js';
 
 // Import controllers used by OMP
 import Container from '@/components/Container/Container.vue';
-import PageContainer from '@/components/Container/PageContainer.vue';
+import Page from '@/components/Container/Page.vue';
 import AddContextContainer from '@/components/Container/AddContextContainer.vue';
-import AdminPageContainer from '@/components/Container/AdminPageContainer.vue';
-import ImportExportContainer from '@/components/Container/ImportExportContainer.vue';
-import SettingsContainer from '@/components/Container/SettingsContainer.vue';
-import StatsEditorialContainer from '@/components/Container/StatsEditorialContainer.vue';
-import StatsPublicationsContainer from '@/components/Container/StatsPublicationsContainer.vue';
-import WorkflowContainer from '@/components/Container/WorkflowContainerOMP.vue';
+import AdminPage from '@/components/Container/AdminPage.vue';
+import ImportExportPage from '@/components/Container/ImportExportPage.vue';
+import SettingsPage from '@/components/Container/SettingsPage.vue';
+import StatsEditorialPage from '@/components/Container/StatsEditorialPage.vue';
+import StatsPublicationsPage from '@/components/Container/StatsPublicationsPage.vue';
+import WorkflowPage from '@/components/Container/WorkflowPageOMP.vue';
 
 import CatalogListPanel from '@/components/ListPanel/submissions/CatalogListPanel.vue';
 
@@ -30,14 +30,14 @@ import FieldText from '@/components/Form/fields/FieldText.vue';
 window.pkp = Object.assign(PkpLoad, {
 	controllers: {
 		Container,
-		PageContainer,
+		Page,
 		AddContextContainer,
-		AdminPageContainer,
-		ImportExportContainer,
-		SettingsContainer,
-		StatsEditorialContainer,
-		StatsPublicationsContainer,
-		WorkflowContainer
+		AdminPage,
+		ImportExportPage,
+		SettingsPage,
+		StatsEditorialPage,
+		StatsPublicationsPage,
+		WorkflowPage
 	}
 });
 
