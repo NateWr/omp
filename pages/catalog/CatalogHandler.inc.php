@@ -119,10 +119,18 @@ class CatalogHandler extends PKPCatalogHandler {
 	 * @return string
 	 */
 	function series($args, $request) {
-		$seriesPath = $args[0];
+		$seriesPath = isset($args[0]) ? $args[0] : null;
 		$page = isset($args[1]) ? (int) $args[1] : 1;
 		$templateMgr = TemplateManager::getManager($request);
 		$context = $request->getContext();
+
+		// Provide a list of series to browse
+		if (!$seriesPath) {
+			$seriesDao = DAORegistry::getDAO('SeriesDAO');
+			$allSeries = $seriesDao->getByPressId($context->getId())->toArray();
+			$templateMgr->assign('allSeries', $allSeries);
+			return $templateMgr->display('frontend/pages/catalogSeriesIndex.tpl');
+		}
 
 		// Get the series
 		$seriesDao = DAORegistry::getDAO('SeriesDAO'); /* @var $seriesDao SeriesDAO */
@@ -179,26 +187,6 @@ class CatalogHandler extends PKPCatalogHandler {
 
 		return $templateMgr->display('frontend/pages/catalogSeries.tpl');
 	}
-	
-	/** Show an index of the available series.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-
-	 function seriesIndex($args, $request) {
-		$templateMgr = TemplateManager::getManager($request);
-		$this->setupTemplate($request);
-		$press = $request->getPress();
-
-			// Provide a list of series to browse
-			$seriesDao = DAORegistry::getDAO('SeriesDAO');
-			$series = $seriesDao->getByPressId($press->getId());
-			$templateMgr->assign('browseSeriesFactory', $series);
-
-			// Display
-			$templateMgr->display('frontend/pages/catalogSeriesIndex.tpl');
-		}
 
 	/**
 	 * @deprecated Since OMP 3.2.1, use pages/search instead.

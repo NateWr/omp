@@ -23,7 +23,6 @@ switch ($op) {
 	case 'fullSize':
 	case 'newReleases':
 	case 'series':
-	case 'seriesIndex':
 	case 'thumbnail':
 	case 'results':
 		define('HANDLER_CLASS', 'CatalogHandler');
