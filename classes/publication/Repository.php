@@ -13,7 +13,6 @@
 
 namespace APP\publication;
 
-use Illuminate\Support\Facades\App;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -23,11 +22,13 @@ use APP\notification\NotificationManager;
 use APP\publicationFormat\PublicationFormatTombstoneManager;
 use APP\submission\Submission;
 use HookRegistry;
+use Illuminate\Support\Facades\App;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\publication\Collector;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
-use PKP\publication\Collector;
 
 class Repository extends \PKP\publication\Repository
 {
@@ -40,9 +41,9 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc PKP\publication\Repository::validate() */
-    public function validate($publication, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate($publication, array $props, Submission $submission, Context $context): array
     {
-        $errors = parent::validate($publication, $props, $allowedLocales, $primaryLocale);
+        $errors = parent::validate($publication, $props, $submission, $context);
 
         // Ensure that the specified series exists
         if (isset($props['seriesId'])) {

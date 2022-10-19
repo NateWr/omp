@@ -14,8 +14,8 @@
  *
  */
 
-namespace APP\API\v1\vocab;
- 
+namespace APP\API\v1\vocabs;
+
 use APP\codelist\ONIXCodelistItemDAO;
 use APP\core\Application;
 use PKP\core\APIResponse;
